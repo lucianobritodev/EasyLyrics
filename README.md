@@ -5,8 +5,7 @@
 
 ## Function:
 
-EasyLyrics é uma aplicação simples de busca por letras de canções. Internamente o EasyLyrics faz uso da api rest [lyricsovh](https://lyricsovh.docs.apiary.io/).
-
+![EasyLyrics](https://lucianobritodev.github.io/EasyLyrics/) é uma aplicação simples de busca por letras de canções. Internamente o EasyLyrics faz uso da api rest [lyricsovh](https://lyricsovh.docs.apiary.io/).
 EasyLyrics faz uso de tecnicas como promises, async await, consumo de rest api e bootstrap 4.
 
 
