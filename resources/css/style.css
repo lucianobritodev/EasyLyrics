@@ -1,0 +1,63 @@
+@media(max-width: 440px) {
+    .container {
+        padding: 0 10%;
+        font-size: 200%;
+    }
+
+    .letras {
+        font-size: xx-large;
+    }
+
+    .btn {
+        clear: both;
+    }
+
+    .btn-primary:first-child {
+        margin-top: 8%;
+        margin-bottom: 8%;
+        width: 8em;
+        height: 2.8em;
+    }
+
+    .btn-primary:nth-child(2) {
+        width: 13em;
+        height: 3.4em;
+    }
+}
+
+.btn-primary {
+    width: 12em;
+    height: 3.4em;
+    margin-top: 2%;
+
+}
+
+.btn-primary:first-child {
+    opacity: 95%;
+}
+
+.btn-primary:nth-child(2) {
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 5%;
+    padding: 0 10%;
+    font-size: 1.4em;
+}
+
+.title {
+    margin-bottom: 3%;
+}
+
+.title h1 {
+    font-weight: bold;
+}
+
+.letras {
+    padding: 0;
+    margin: 5% 0 0;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
