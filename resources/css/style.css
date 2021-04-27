@@ -21,6 +21,12 @@
         width: 13em;
         height: 3.4em;
     }
+
+    img#loading {
+
+        width: 22%;
+        height: 22%;
+    }
 }
 
 .btn-primary {
