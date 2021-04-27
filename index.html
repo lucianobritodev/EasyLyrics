@@ -7,7 +7,7 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" href="assets/favicon.jpg" type="image/x-icon">
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 
         <!-- Bootstrap CSS -->
         <link
@@ -21,7 +21,7 @@
 
         <div class="container">
             <div class="row justify-content-center title">
-                <h1>Easy Lyrics</h1>
+                <h1><a href="/" rel="home"><img src="assets/icon.png" alt="Easy Lyrics">EasyLyrics</a></h1>
             </div>
             <div class="row justify-content-center">
                 <form id="lyrics-form">
@@ -42,9 +42,17 @@
                                 id="song"
                                 placeholder="Enter the name of the song">
                         </div>
-                        <div class="form-group col-md-12 text-center">
-                            <button class="btn btn-primary" onclick="window.location.reload();" type="reset">Clear</button>
-                            <button class="btn btn-primary" type="submit" autofocus>Let's Sing</button>
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="btn-group">
+                                    <div class="button-clear">
+                                        <button class="btn btn-primary" onclick="clearFields();" type="reset">Clear</button> <!--window.location.reload();-->
+                                    </div>
+                                    <div class="button-go">
+                                        <button class="btn btn-primary" type="submit" autofocus>Let's Sing</button>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </form>
@@ -52,12 +60,13 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row justify-content-center letras">
-                <pre class="mt-lg-auto" id="lyrics"></pre>
+            <div class="row d-flex justify-content-center letras">
+                <img id="loading" src="./assets/loading.gif" alt="carregando">
+                <p><pre class="mt-lg-auto" id="lyrics"></pre>
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid author">
             <div class="row justify-content-around">
                 <pre class="mt-lg-auto" id="author">Criated by Luciano Brito</pre>
             </div>
