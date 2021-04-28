@@ -29,6 +29,18 @@
     }
 }
 
+@media(max-width: 770px) {
+
+    .back-to-top {
+        width: 60px;    
+      }
+    
+      .back-to-top a {
+          right: 15px;
+          bottom: 15px;
+      }
+}
+
 .btn-primary {
     width: 12em;
     height: 3.4em;
@@ -103,3 +115,29 @@ img#loading {
     width: 18%;
     height: 18%;
 }
+
+
+
+.back-to-top {
+    float: right;
+    width: 80px;    
+    display: none;
+  }
+
+  .back-to-top a {
+      width: inherit;
+      position:fixed;
+      right: 20px;
+      bottom: 15px;
+      cursor:pointer;
+  }
+
+
+  .back-to-top a img {
+    width: inherit;
+}
+
+
+.back-to-top:focus {
+    outline-style: none;
+  }
