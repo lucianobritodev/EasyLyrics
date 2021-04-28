@@ -21,11 +21,10 @@ async function doSubmit() {
   let artist = document.querySelector("#artist").value.split(" ").join("-");
   let song = document.querySelector("#song").value;
 
-  if (artist == "" || song == "") {
-    return alert(
-      "Os campos não podem estar vazios!\n\nPor favor, digite o nome do artista e a música para realizarmos a busca."
-    );
+  if (artist == '' || song == '') {
+    return Swal.fire('Erro:', 'Os campos estão vazios! Por favor, preencha os campos.', 'error')
   }
+
   clearFields();
   document.getElementById("loading").style.display = "block";
 
