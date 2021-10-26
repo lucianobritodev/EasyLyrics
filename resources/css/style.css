@@ -9,8 +9,6 @@
         width: 80%;
     }
 
-
-
     .btn-primary:first-child {
         margin-top: 8%;
         margin-bottom: 8%;
@@ -85,7 +83,7 @@
 
 .letras {
     margin: 0;
-    padding: 10% 0 0;
+    padding: 5% 0 0;
     width: 100%;
     font-family: monospace, sans-serif;
     font-size: larger;
@@ -137,8 +135,8 @@ img#loading {
 }
 
 .vagalumeIcon {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
 }
 
 #artistAndSong {
@@ -152,19 +150,17 @@ img#loading {
     display: none;
   }
 
-  .back-to-top a {
-      width: inherit;
-      position:fixed;
-      right: 20px;
-      bottom: 15px;
-      cursor:pointer;
-  }
-
+.back-to-top a {
+    width: inherit;
+    position:fixed;
+    right: 20px;
+    bottom: 15px;
+    cursor:pointer;
+}
 
   .back-to-top a img {
     width: inherit;
 }
-
 
 .back-to-top:focus {
     outline-style: none;
