@@ -37,7 +37,12 @@
                                 type="text"
                                 class="form-control"
                                 id="artist"
-                                placeholder="Enter the name of the artist">
+                                title="Special characters, accented and numeric are invalid!"
+                                alt="Enter the name of the artist"
+                                placeholder="Enter the name of the artist"
+                                pattern="[a-zA-Z\s]+$"
+                                required>
+                                
                         </div>
                         <div class="form-group col-md-6">
                             <label for="song">Song</label>
@@ -45,16 +50,21 @@
                                 type="text"
                                 class="form-control"
                                 id="song"
-                                placeholder="Enter the name of the song">
+                                title="Special characters, accented and numeric are invalid!"
+                                alt="Enter the name of the song"
+                                placeholder="Enter the name of the song"
+                                pattern="[a-zA-Z\s]+$"
+                                required>
+                                
                         </div>
                         <div class="container-fluid">
                             <div class="row justify-content-center">
                                 <div class="btn-group">
                                     <div class="button-clear">
-                                        <button class="btn btn-primary" onclick="clearFields();" type="reset">Clear</button> <!--window.location.reload();-->
+                                        <button class="btn btn-primary" onclick="clearFields();" type="reset" alt="Clear Fields">Clear</button> <!--window.location.reload();-->
                                     </div>
                                     <div class="button-go">
-                                        <button class="btn btn-primary" type="submit" autofocus>Let's Sing</button>
+                                        <button class="btn btn-primary" type="submit" alt="Submit" autofocus>Let's Sing</button>
                                     </div>
                                 </div>
                             </div> 
@@ -68,13 +78,13 @@
         <div class="container-fluid">
             <div class="row d-flex justify-content-center letras">
                 <img id="loading" src="./assets/loading.gif" alt="carregando">
-                <pre class="mt-lg-auto" id="lyrics"></pre>
+                <pre class="mt-lg-auto" id="lyrics" alt="Lyrics"></pre>
             </div>
         </div>
 
         <div class="container-fluid author">
             <div class="row justify-content-around">
-                <pre class="mt-lg-auto" id="author">Criated by Luciano Brito</pre>
+                <pre class="mt-lg-auto" id="author" alt="author, Luciano Brito">Criated by Luciano Brito</pre>
             </div>
         </div>
 
