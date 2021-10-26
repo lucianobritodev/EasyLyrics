@@ -5,7 +5,8 @@
     }
 
     .letras {
-        font-size: xx-large;
+        font-size: x-large;
+        width: 80%;
     }
 
 
@@ -39,6 +40,10 @@
           right: 15px;
           bottom: 15px;
       }
+
+    .letras {
+        width: 80%;
+    }
 }
 
 .btn-primary {
@@ -79,10 +84,10 @@
 }
 
 .letras {
-    padding: 0;
-    margin: 5% 0 0;
+    margin: 0;
+    padding: 10% 0 0;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace, sans-serif;
     font-size: larger;
 }
 

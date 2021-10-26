@@ -1,14 +1,3 @@
-function clearFields() {
-    let lyricsEl = document.querySelector("#lyrics");
-    let artist = document.querySelector("#artist").value.split(" ").join("-");
-    let song = document.querySelector("#song").value;
-    lyricsEl.innerHTML = "";
-}
-
-function findLyrics(artist, song) {
-  return fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`);
-}
-
 const form = document.querySelector("#lyrics-form");
 
 form.addEventListener("submit", (el) => {
@@ -18,29 +7,49 @@ form.addEventListener("submit", (el) => {
 
 async function doSubmit() {
   let lyricsEl = document.querySelector("#lyrics");
-  let artist = document.querySelector("#artist").value.split(" ").join("-");
-  let song = document.querySelector("#song").value;
+  let artist = document.querySelector("#artist").value.toLowerCase().trim().split(" ").join("-");
+  let song = document.querySelector("#song").value.toLowerCase().trim().split(" ").join("-");
 
   if (artist == '' || song == '') {
-    return Swal.fire('Erro:', 'Os campos estão vazios! Por favor, preencha os campos.', 'error')
+    return Swal.fire('Ops!', 'Algo deu errado. Por favor, preencha os campos corretamente!', 'error')
   }
 
   clearFields();
   document.getElementById("loading").style.display = "block";
 
-  //async await
   try {
-    const lyricsResponse = await findLyrics(artist, song);
-    const data = await lyricsResponse.json();
+    const [ vagalumeJson, lyricsJson ] = await findLyrics(artist, song);
+    
     document.getElementById("loading").style.display = "none";
-    if (data.lyrics && data) {
-      lyricsEl.innerHTML = data.lyrics;
+    
+    if (vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact' || lyricsJson.lyrics) {
+      if(vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact') {
+        lyricsEl.innerHTML = vagalumeJson.mus[0].text;
+      } else if (lyricsJson.lyrics) {
+        lyricsEl.innerHTML = lyricsJson.lyrics;
+      }
     } else {
-      lyricsEl.innerHTML = data.error;
+      throw new Error('No lyrics found!')
     }
+
   } catch (error) {
-    console.log(error);
+    lyricsEl.innerHTML = error.message;
   }
 }
 
+function clearFields() {
+  document.querySelector("#lyrics").innerHTML = "";
+}
+
+async function findLyrics(artist, song) {
+  const [ responseVagalume, responseLyrics ] = await Promise.all([
+    fetch(`https://api.vagalume.com.br/search.php?art=${artist}&mus=${song}&limit=1`),
+    fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`)
+  ]);
+
+  const vagalumeJson = await responseVagalume.json();
+  const lyricsJson = await responseLyrics.json();
+
+  return [ vagalumeJson, lyricsJson ];
+}
 /* <div class="clearfix"><div class="spinner-border float-end" role="status"><span class="visually-hidden"></span></div></div> */

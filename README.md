@@ -5,7 +5,11 @@
 
 ## Function:
 
-[EasyLyrics](https://lucianobritodev.github.io/EasyLyrics/) é uma aplicação simples de busca por letras de canções. Internamente o EasyLyrics faz uso da api rest [lyricsovh](https://lyricsovh.docs.apiary.io/),bem como da linguagem JavaScript(ES6) e dos conceitos mais atuais da linguagem como promises, async await; consumo de rest api e bootstrap 4.
+[EasyLyrics](https://lucianobritodev.github.io/EasyLyrics/) é uma aplicação simples de busca por letras de canções. Internamente o EasyLyrics faz uso de duas apis rest [Lyricsovh](https://lyricsovh.docs.apiary.io/) e [VagalumeAPI](https://api.vagalume.com.br/).
+
+O EasyLyrics foi construido utilizando a linguagem *JavaScript* com especificação *ES6*, bem como, dos conceitos mais atuais da linguagem como promises, fetch API, async await. No front end foram utilizandos: HTML5, CSS e Bootstrap.
+
+Sua interface foi pensada e projetada para ser o mais clean possível fronecendo ao usuário uma experiência intuitiva e de facil utilização.
 
 
 ## Contributors
