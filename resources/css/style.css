@@ -93,6 +93,7 @@
 
 .author {
     margin-top: 5%;
+    padding-bottom: 10%;
 }
 
 
@@ -121,7 +122,29 @@ img#loading {
     height: 18%;
 }
 
+#vagalumeContainer {
+    display: none;
+    width: 50%;
+    padding: 5% 0 0;
+    margin: 0 25%;
+    text-align: center;
+}
 
+#vagalumeUrl {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.vagalumeIcon {
+    width: 32px;
+    height: 32px;
+}
+
+#artistAndSong {
+    padding: 0;
+    margin: 0;
+}
 
 .back-to-top {
     float: right;
