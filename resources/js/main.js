@@ -9,8 +9,8 @@ async function doSubmit() {
   let lyricsEl = document.querySelector("#lyrics");
   let artistRaw = document.querySelector("#artist").value;
   let songRaw = document.querySelector("#song").value;
-  let artist = artistRaw.toLowerCase().trim().split(" ").join("-");
-  let song = songRaw.toLowerCase().trim().split(" ").join("-");
+  let artist = artistRaw.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(' ').join('-');
+  let song = songRaw.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(' ').join('-');
   const key = '0baa17731bcd852efce9c8c9753e13f2';
   const vagalumeUrl = document.querySelector("#vagalumeUrl");
   const artistAndSong = document.querySelector("#artistAndSong");
@@ -31,7 +31,7 @@ async function doSubmit() {
       if(vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact') {
         lyricsEl.innerHTML = vagalumeJson.mus[0].text;
         vagalumeUrl.href = vagalumeJson.mus[0].url;
-        artistAndSong.innerHTML = artistRaw.toLowerCase() + " - " + songRaw.toLowerCase();
+        artistAndSong.innerHTML = titleCase(artistRaw) + " - " + titleCase(songRaw);
         document.querySelector("#vagalumeContainer").style.display = "block";
       } else if (lyricsJson.lyrics) {
         lyricsEl.innerHTML = lyricsJson.lyrics;
@@ -41,6 +41,7 @@ async function doSubmit() {
     }
 
   } catch (error) {
+    document.querySelector("#loading").style.display = "none";
     lyricsEl.innerHTML = error.message;
   }
 }
@@ -60,5 +61,12 @@ async function findLyrics(artist, song, key) {
   const lyricsJson = await responseLyrics.json();
 
   return [ vagalumeJson, lyricsJson ];
+}
+
+function titleCase(str) {
+  let title = str.replace(/\w\S*/g, (str) => {
+    return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
+  })
+  return title;
 }
 /* <div class="clearfix"><div class="spinner-border float-end" role="status"><span class="visually-hidden"></span></div></div> */
