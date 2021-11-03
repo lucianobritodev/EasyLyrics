@@ -1,8 +1,6 @@
-$(document).ready(function() {
-    //var targetOffset = $('#back-to-top').offset().top;
-    
+$(document).ready(function() {  
     $(window).scroll(function () {
-        if ($(this).scrollTop() >= 100) {
+        if ($(this).scrollTop() >= 200) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut();
