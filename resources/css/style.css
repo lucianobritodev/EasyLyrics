@@ -86,7 +86,7 @@
 
 .author {
     margin-top: 5%;
-    padding-bottom: 10%;
+    padding-bottom: 30%;
     text-decoration: none;
 }
 
@@ -142,24 +142,25 @@ a:hover {
 .back-to-top {
     display: none;
     width: 10%;
+    height: 6em;
     right: 20px;
-    bottom: 20px;
+    bottom: 10%;
     position: fixed;
     clear: both;
+
   }
 
 .back-to-top a {
     cursor: pointer;
     text-decoration: none;
     width: 100%;
-    height: inherit;
+    height: 100%;
     position: relative;
 }
 
 .back-to-top a img {
     width: inherit;
-    position: relative;
-    
+    position: relative;    
 }
 
 #back-to-top-icon {
@@ -178,4 +179,21 @@ a:hover {
 
 #contribuir a:focus, #contribuir a button {
     outline-style: none;
+}
+
+.thumbnails {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    display: none;
+}
+
+.thumbnail {
+    border: 1px solid #D3D3D3;
+    width: 100%;
+    padding: 5%;
+    margin: 2% auto;
+}
+
+.thumbnail img {
+    width: 80%;
 }

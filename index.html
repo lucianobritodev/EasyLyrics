@@ -23,86 +23,107 @@
         <link rel="stylesheet" type="text/css" href="sweetalert2/dist/sweetalert2.min.css">
     </head>
     <body>
-
-        <div class="container">
-            <div class="row justify-content-center title">
-                <h1  id="back-to-top"><a href="index.html" rel="home"><img id="easy-lyrics-icon" src="assets/icon.png" alt="Easy Lyrics">EasyLyrics</a></h1>
+        <section class="main">
+            <div class="container">
+                <div class="row justify-content-center title">
+                    <h1  id="back-to-top"><a href="index.html" rel="home"><img id="easy-lyrics-icon" src="assets/icon.png" alt="Easy Lyrics">EasyLyrics</a></h1>
+                </div>
+                <div class="row justify-content-center">
+                    <form id="lyrics-form">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="artist">Cantor</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="artist"
+                                    title="Caractere especial inválido!"
+                                    alt="Nome do cantor ou banda"
+                                    placeholder="Nome do cantor ou banda"
+                                    pattern="^[A-Za-z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ&?# ]+$"
+                                    required
+                                >
+                                    
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="song">Múscia</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="song"
+                                    title="Caractere especial inválido!"
+                                    alt="Nome da música"
+                                    placeholder="Nome da música"
+                                    pattern="^[A-Za-z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ&?# ]+$"
+                                    required
+                                >
+                                    
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="btn-group">
+                                        <div class="button-clear">
+                                            <button class="btn btn-primary" onclick="clearFields();" type="reset" alt="Clear Fields">Limpar</button>
+                                        </div>
+                                        <div class="button-go">
+                                            <button class="btn btn-primary" type="submit" alt="Submit" autofocus>Vamos cantar</button>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <form id="lyrics-form">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="artist">Cantor</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="artist"
-                                title="Caractere especial inválido!"
-                                alt="Nome do cantor ou banda"
-                                placeholder="Nome do cantor ou banda"
-                                pattern="^[A-Za-z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ&?# ]+$"
-                                required
-                            >
-                                
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="song">Múscia</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="song"
-                                title="Caractere especial inválido!"
-                                alt="Nome da música"
-                                placeholder="Nome da música"
-                                pattern="^[A-Za-z0-9áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ&?# ]+$"
-                                required
-                            >
-                                
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row justify-content-center">
-                                <div class="btn-group">
-                                    <div class="button-clear">
-                                        <button class="btn btn-primary" onclick="clearFields();" type="reset" alt="Clear Fields">Limpar</button>
-                                    </div>
-                                    <div class="button-go">
-                                        <button class="btn btn-primary" type="submit" alt="Submit" autofocus>Vamos cantar</button>
-                                    </div>
-                                </div>
-                            </div> 
+
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center letras">
+                    <img id="loading" src="./assets/loading.gif" alt="carregando">
+                    <pre class="mt-lg-auto" id="lyrics" alt="Lyrics"></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="thumbnails">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="thumbnail">
+                            <img src="/assets/logo-vagalume-api.png" alt="">
+                            <div class="caption">
+                                <br>
+                                <h4>Não encontrou o que procura?</h4>
+                                <p>Clique abaixo para contribuir enviando letras</p>
+                                <a class="button" role="button"  target="_blank" href="https://www.vagalume.com.br/add/">
+                                    <input class="btn btn-success" type="button" value="Contribuir">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </form>
+                    <div class="col-sm-6">
+                        <div class="thumbnail">
+                            <img id="logoapi" alt="">
+                            <div class="caption">
+                                <br>
+                                <h4 id="artistAndSong" class="text-center">Text</h4>
+                                <p class="text-center">Clique abaixo para conferir esta letra na fonte</p>
+                                <a id="apiurl" class="button" role="button" target="_blank">
+                                    <input class="btn btn-success" type="button" value="Conferir">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center letras">
-                <img id="loading" src="./assets/loading.gif" alt="carregando">
-                <pre class="mt-lg-auto" id="lyrics" alt="Lyrics"></pre>
+        <section class="author">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <pre class="mt-lg-auto" id="author" alt="author, Luciano Brito">Criated by <a target="_blank" href="https://github.com/lucianobritodev">Luciano Brito</a></pre>
+                </div>
             </div>
-        </div>
-
-        <div id="vagalumeContainer">
-            <a target="_blank" href="" id="vagalumeUrl">
-                <img class="vagalumeIcon" src="./assets/vagalume.png" alt="Vagalume Logo">
-                <h3>&nbsp;Vagalume</h3>
-                <h3 id="artistAndSong">Text</h3>
-            </a>
-        </div>
-        <div id="contribuir" class="container text-center">
-            <p style="text-align:center; font-size: 14px;">Não encontrou o que procurava ou deseja contribuir?<br>Clique no botão abaixo!</p>
-            <a class="text-center justify-content-center" role="button" href="https://www.vagalume.com.br/add/">
-                <input class="btn btn-success" type="button" value="Contribuir">
-                <span class="glyphicon glyphicon-pencil"></span>
-            </a>
-        </div>
-
-        <div class="container-fluid author">
-            <div class="row justify-content-around">
-                <pre class="mt-lg-auto" id="author" alt="author, Luciano Brito">Criated by <a target="_blank" href="https://github.com/lucianobritodev">Luciano Brito</a></pre>
-            </div>
-        </div>
+        </section>
 
         <div class="back-to-top embed-responsive float-right"><a  href="./index.html#back-to-top"><img id="back-to-top-icon" class="img-responsive" src="assets/back-to-top.png"></a></div>
 

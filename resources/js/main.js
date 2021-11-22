@@ -1,5 +1,5 @@
 const form = document.querySelector("#lyrics-form");
-const vagalumeUrl = document.querySelector("#vagalumeUrl");
+const apiurl = document.querySelector("#apiurl");
 const artistAndSong = document.querySelector("#artistAndSong");
 const keys = {
   vagalumeApiKey: "0baa17731bcd852efce9c8c9753e13f2",
@@ -12,6 +12,7 @@ form.addEventListener("submit", (el) => {
 });
 
 async function doSubmit() {
+  let logoapi = document.querySelector("#logoapi");
   let lyricsEl = document.querySelector("#lyrics");
   let artistRaw = document.querySelector("#artist").value;
   let songRaw = document.querySelector("#song").value;
@@ -44,13 +45,17 @@ async function doSubmit() {
     
     if (vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact' || lyricsJson.lyrics) {
       if(vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact') {
+        logoapi.setAttribute('src', '/assets/logo-vagalume-api.png')
         lyricsEl.innerHTML = vagalumeJson.mus[0].text;
-        vagalumeUrl.href = vagalumeJson.mus[0].url;
-        artistAndSong.innerHTML = titleCase(artistRaw) + " - " + titleCase(songRaw);
-        document.querySelector("#vagalumeContainer").style.display = "block";
+        apiurl.setAttribute('href', vagalumeJson.mus[0].url);
+        artistAndSong.innerHTML = titleCase(songRaw) + '<br>' + titleCase(artistRaw);
       } else if (lyricsJson.lyrics) {
+        logoapi.setAttribute('src', '/assets/logo-lyrics.ovh.png')
         lyricsEl.innerHTML = lyricsJson.lyrics;
+        apiurl.setAttribute('href', 'https://lyricsovh.docs.apiary.io/');
+        artistAndSong.innerHTML = titleCase(artistRaw) + " - " + titleCase(songRaw);
       }
+      document.querySelector(".thumbnails").style.display = "block";
     } else {
       throw new Error('Canção não encontrada!')
     }
@@ -63,7 +68,7 @@ async function doSubmit() {
 
 function clearFields() {
   document.querySelector("#lyrics").innerHTML = "";
-  document.querySelector("#vagalumeContainer").style.display = "none";
+  document.querySelector(".thumbnails").style.display = "none";
 }
 
 async function findLyrics(artist, song, keys) {
