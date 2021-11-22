@@ -45,12 +45,12 @@ async function doSubmit() {
     
     if (vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact' || lyricsJson.lyrics) {
       if(vagalumeJson.type == 'aprox' || vagalumeJson.type == 'exact') {
-        logoapi.setAttribute('src', '/assets/logo-vagalume-api.png')
+        logoapi.setAttribute('src', '../../assets/logo-vagalume-api.png')
         lyricsEl.innerHTML = vagalumeJson.mus[0].text;
         apiurl.setAttribute('href', vagalumeJson.mus[0].url);
         artistAndSong.innerHTML = titleCase(songRaw) + '<br>' + titleCase(artistRaw);
       } else if (lyricsJson.lyrics) {
-        logoapi.setAttribute('src', '/assets/logo-lyrics.ovh.png')
+        logoapi.setAttribute('src', '../../assets/logo-lyrics.ovh.png')
         lyricsEl.innerHTML = lyricsJson.lyrics;
         apiurl.setAttribute('href', 'https://lyricsovh.docs.apiary.io/');
         artistAndSong.innerHTML = titleCase(artistRaw) + " - " + titleCase(songRaw);
